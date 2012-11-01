@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:invite, :bulk_invite]
+  before_filter :authenticate_admin_user!, :only => [:invite, :bulk_invite]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -12,14 +13,14 @@ class UsersController < ApplicationController
   end
   
   def invite
-    authorize! :invite, @user, :message => 'Not authorized as an administrator.'
+    authorize! :invite, current_resource, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
     @user.send_confirmation_instructions
     redirect_to :back, :only_path => true, :notice => "Sent invitation to #{@user.email}."
   end
   
   def bulk_invite
-    authorize! :bulk_invite, @user, :message => 'Not authorized as an administrator.'
+    authorize! :bulk_invite, current_resource, :message => 'Not authorized as an administrator.'
     users = User.where(:confirmation_token => nil).order(:created_at).limit(params[:quantity])
     users.each do |user|
       user.send_confirmation_instructions
