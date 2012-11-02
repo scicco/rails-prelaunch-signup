@@ -18,8 +18,6 @@ ActiveAdmin.register_page "Dashboard" do
       end
     end
 
-    #<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
-
     #div :class => "blank_slate_container", :id => "dashboard_default_message" do
     #  span :class => "blank_slate" do
     #    span "Welcome to Active Admin. This is the default dashboard page."
@@ -27,8 +25,7 @@ ActiveAdmin.register_page "Dashboard" do
     #  end
     #end
 
-    # Here is an example of a simple dashboard with
-columns and panels.
+    # Here is an example of a simple dashboard with columns and panels.
     #
     # columns do
     #   column do
