@@ -1,3 +1,10 @@
+h1. Disclaimer: This is a forked version of Prelaunch Signup, which use ActiveAdmin as Backend and HighCharts as chart library.
+
+Find more info here:
+
+ActiveAdmin:http://activeadmin.info/
+HighCharts:http://www.highcharts.com/
+
 h1. !http://railsapps.github.com/images/rails-36x36.jpg(Rails App for a Startup Prelaunch Signup Site)! Rails App for a Startup Prelaunch Signup Site
 
 Rails 3.2 example application for a “beta launching soon” startup prelaunch signup site.
